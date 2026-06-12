@@ -1,13 +1,13 @@
 package br.com.gabrielga_dev.spring_ai_jokes;
 
 import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
 
-@SpringBootTest
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
+
 class SpringAiJokesApplicationTests {
 
 	@Test
-	void contextLoads() {
+	void mainMethodShouldExist() {
+		assertDoesNotThrow(() -> SpringAiJokesApplication.class.getDeclaredMethod("main", String[].class));
 	}
-
 }

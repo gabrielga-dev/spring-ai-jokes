@@ -4,6 +4,7 @@ import br.com.gabrielga_dev.spring_ai_jokes.controller.api.JokeApi;
 import br.com.gabrielga_dev.spring_ai_jokes.data_shape.dto.request.JokeRequestDTO;
 import br.com.gabrielga_dev.spring_ai_jokes.data_shape.dto.response.JokeResponseDTO;
 import br.com.gabrielga_dev.spring_ai_jokes.service.JokeService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,7 +20,7 @@ public class JokeController implements JokeApi {
 
     @Override
     @GetMapping("/generate")
-    public ResponseEntity<JokeResponseDTO> generateJoke(JokeRequestDTO jokeRequest) {
+    public ResponseEntity<JokeResponseDTO> generateJoke(@Valid JokeRequestDTO jokeRequest) {
         final var generatedJoke = jokeService.generateJoke(jokeRequest);
         return ResponseEntity.ok(generatedJoke);
     }
